@@ -5,15 +5,16 @@ spring:
     r2dbc:
       repositories:
         enabled: true
+  jpa:
+    show-sql: false
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/reactive
     username: postgres
     password: 12345
     properties:
       schema: bookshop
-
 logging:
   level:
     org:
       springframework:
-        r2dbc: DEBUG
+        r2dbc: OFF
