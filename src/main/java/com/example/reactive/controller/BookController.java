@@ -15,10 +15,10 @@ public interface BookController {
     Mono<Book> saveBook(@RequestBody Book book);
 
     @ResponseStatus(code = HttpStatus.OK)
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     Mono<Book> getBookById(@PathVariable Long id);
 
     @ResponseStatus(code = HttpStatus.OK)
-    @GetMapping("/all")
+    @GetMapping(value = "/all")
     Flux<Book> getAllBooks();
 }

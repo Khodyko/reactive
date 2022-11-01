@@ -5,16 +5,24 @@ spring:
     r2dbc:
       repositories:
         enabled: true
-  jpa:
-    show-sql: false
+  liquibase:
+    change-log: classpath:/liquibase/changelog.yml
+    url: jdbc:postgresql://localhost:5432/reactive
+    password: 12345
+    enabled: true
+    user: postgres
+    default-schema: bookshop
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/reactive
     username: postgres
     password: 12345
     properties:
       schema: bookshop
+    pool:
+      initial-size: 10
+      max-size: 20
 logging:
   level:
     org:
       springframework:
-        r2dbc: OFF
+        r2dbc: DEBUG
